@@ -11,7 +11,6 @@ from utils.InitialValue import KEYFILE, AUDIOSAVEDIR, AUDIOUPLOADDIRID
 keyFile = KEYFILE
 dirname = AUDIOSAVEDIR
 updirID = AUDIOUPLOADDIRID
-savedir = ""
 
 
 def main():
@@ -20,7 +19,7 @@ def main():
     if len(list["files"]) > 0:
         fileID = list["files"][0]["id"]
         fileName = list["files"][0]["name"]
-        downloadtoGoogleDrive(fileID, fileName, savedir, keyFile)
+        downloadtoGoogleDrive(fileID, fileName, dirname, keyFile)
 
         deletefileinGoogleDrive(fileID, keyFile)
         with open('Logs/cutLog.csv', 'a') as f:
