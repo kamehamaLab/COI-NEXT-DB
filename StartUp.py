@@ -1,6 +1,6 @@
 import os
 import csv
-from utils.GoogleDrivefunc import CUTLOGFILE, AUDIOSAVEDIR
+from utils.InitialValue import CUTLOGFILE, AUDIOSAVEDIR
 
 def yes_no_input():
     while True:
@@ -12,6 +12,7 @@ def yes_no_input():
 
 
 def main():
+    # check profile
     if not os.path.exists('token.json'):
         print("Please prepare a certification file.")
         return
@@ -24,19 +25,19 @@ def main():
         os.makedirs('RECdata')
     print("Make RECdata Dir")
 
-    if not os.path.exists(CUTLOGFILE):
+    # create Log files
+    if not os.path.exists("Logs/cutLog.csv"):
         with open(CUTLOGFILE, 'w') as f:
             writer = csv.writer(f)
             writer.writerow(["datetime", "filename"])
-    print("Make Logs/DeleteLog.csv")
+    print("Make Logs/cutLog.csv")
 
-
+    print("Completed")
 
 if __name__ == '__main__':
     if yes_no_input():
         print("Initialize Logs...")
         main()
-        print("Completed")
 
     else :
         print("Look forward to trying again!")
